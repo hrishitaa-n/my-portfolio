@@ -1,11 +1,14 @@
 import Navbar from "./components/navbar";
 import RevealSection from "./components/reveal-section";
+import ScrollProgress from "./components/scroll-progress";
 
 const skillGroups = [
   {
     id: "skills",
     title: "Languages",
     items: ["Python", "Java", "SQL"],
+    tintClassName:
+      "bg-[linear-gradient(180deg,rgba(127,119,221,0.18),rgba(255,255,255,0.03))]",
   },
   {
     id: "ai-ml",
@@ -21,6 +24,8 @@ const skillGroups = [
       "RAG",
       "Prompt Engineering",
     ],
+    tintClassName:
+      "bg-[linear-gradient(180deg,rgba(86,105,221,0.18),rgba(255,255,255,0.03))]",
   },
   {
     id: "backend",
@@ -34,6 +39,8 @@ const skillGroups = [
       "System Design",
       "API Design",
     ],
+    tintClassName:
+      "bg-[linear-gradient(180deg,rgba(127,119,221,0.14),rgba(24,34,70,0.26))]",
   },
   {
     id: "data",
@@ -46,6 +53,8 @@ const skillGroups = [
       "Power BI",
       "Excel",
     ],
+    tintClassName:
+      "bg-[linear-gradient(180deg,rgba(65,84,170,0.18),rgba(255,255,255,0.03))]",
   },
   {
     id: "tools",
@@ -60,11 +69,14 @@ const skillGroups = [
       "Pantheon",
       "AWS (Cloud Foundations)",
     ],
+    tintClassName:
+      "bg-[linear-gradient(180deg,rgba(127,119,221,0.16),rgba(55,78,165,0.18))]",
   },
 ];
 
 const projects = [
   {
+    icon: "🤖",
     title: "AI Agent Monitoring System",
     badge: "FEATURED",
     badgeClassName: "bg-[var(--accent-soft)] text-[var(--accent)]",
@@ -80,18 +92,21 @@ const projects = [
       "Built a scalable backend to monitor distributed agents in real time — tracking health, uptime, and SLA breaches with automated alerting and secure token-based APIs.",
   },
   {
+    icon: "💬",
     title: "AI-Powered Ticketing Chatbot",
     tech: ["Python", "NLP", "FastAPI", "SQL", "REST APIs", "LLM"],
     description:
       "Engineered a conversational chatbot that automates ticket generation, classification, and routing using LLM-driven intent recognition — cutting manual triage with intelligent SLA escalation logic.",
   },
   {
+    icon: "🧠",
     title: "Sentiment Analysis with RoBERTa",
     tech: ["Python", "HuggingFace Transformers", "NLP", "Deep Learning"],
     description:
       "Fine-tuned a RoBERTa transformer for sentiment classification using transfer learning — outperforming baseline models through hyperparameter tuning and contextual tokenization.",
   },
   {
+    icon: "⚡",
     title: "EEG Motor Imagery Classifier",
     badge: "IN PROGRESS",
     badgeClassName: "bg-amber-500/14 text-amber-300",
@@ -102,12 +117,30 @@ const projects = [
 ];
 
 const certifications = [
-  "AWS Cloud Foundations",
-  "Python for Data Science - IBM",
-  "Google AI Essentials",
-  "SQL Basic - HackerRank",
-  "Tableau - Tableau Learning Partner",
-  "Programming Essentials in Python - Cisco",
+  {
+    title: "AWS Cloud Foundations",
+    accentClassName: "border-l-[var(--accent)]",
+  },
+  {
+    title: "Python for Data Science — IBM",
+    accentClassName: "border-l-[#5c79ff]",
+  },
+  {
+    title: "Google AI Essentials",
+    accentClassName: "border-l-[var(--accent)]",
+  },
+  {
+    title: "SQL Basic — HackerRank",
+    accentClassName: "border-l-[#5c79ff]",
+  },
+  {
+    title: "Tableau — Tableau Learning Partner",
+    accentClassName: "border-l-[var(--accent)]",
+  },
+  {
+    title: "Programming Essentials in Python — Cisco",
+    accentClassName: "border-l-[#5c79ff]",
+  },
 ];
 
 const contactLinks = [
@@ -146,27 +179,35 @@ const contactLinks = [
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <ScrollProgress />
       <Navbar />
 
       <main className="mx-auto flex w-full max-w-6xl flex-col px-4 pb-24 sm:px-6">
         <RevealSection>
           <section
             aria-label="Hero"
-            className="grid min-h-[calc(100vh-5.5rem)] scroll-mt-28 items-center gap-12 py-14 md:grid-cols-[1.15fr_0.85fr] md:py-20"
+            className="relative grid min-h-[calc(100vh-5.5rem)] scroll-mt-28 items-center gap-12 overflow-hidden py-16 md:grid-cols-[1.15fr_0.85fr] md:py-24"
           >
-            <div className="space-y-8">
+            <div className="hero-mesh" />
+            <div className="hero-particles" />
+
+            <div className="relative space-y-8 pt-20">
+              <div className="floating-badge absolute left-0 top-0 inline-flex h-16 w-16 items-center justify-center rounded-full border border-[rgba(127,119,221,0.55)] bg-[rgba(16,16,28,0.9)] text-lg font-semibold tracking-[0.28em] text-[var(--accent)] shadow-[0_0_0_1px_rgba(127,119,221,0.1),0_0_48px_rgba(127,119,221,0.24)]">
+                HN
+              </div>
               <div className="inline-flex items-center rounded-full border border-[var(--border-color)] bg-white/5 px-4 py-2 text-sm text-white/70 backdrop-blur">
                 Pune, Maharashtra, India
               </div>
 
-              <div className="space-y-5">
-                <p className="text-sm font-medium uppercase tracking-[0.3em] text-[var(--accent)]">
+              <div className="relative space-y-5">
+                <div className="hero-blob" />
+                <p className="relative text-sm font-medium uppercase tracking-[0.3em] text-[var(--accent)]">
                   Hrishitaa Nalawade
                 </p>
-                <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">
+                <h1 className="hero-name-gradient relative max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
                   CS Engineer &mdash; AI, ML &amp; Backend Development
                 </h1>
-                <p className="max-w-2xl text-lg leading-8 text-white/70 sm:text-xl">
+                <p className="relative max-w-2xl text-lg leading-8 text-white/70 sm:text-xl">
                   I build intelligent systems &mdash; from LLM integrations to
                   real-time backend APIs
                 </p>
@@ -233,7 +274,7 @@ export default function Home() {
           </section>
         </RevealSection>
 
-        <RevealSection className="mt-16">
+        <RevealSection className="mt-20">
           <section
             id="about"
             className="scroll-mt-28 rounded-[2rem] border border-[var(--border-color)] bg-white/[0.03] px-6 py-10 sm:px-8 md:px-10"
@@ -246,6 +287,7 @@ export default function Home() {
                 Building at the intersection of intelligence, systems, and
                 design.
               </h2>
+              <div className="section-accent-line" />
               <p className="text-base leading-8 text-white/72 sm:text-lg">
                 I&apos;m a Computer Science Engineering student at MIT-ADT
                 University, Pune, specialising in AI in Analytics with a minor
@@ -263,7 +305,7 @@ export default function Home() {
           </section>
         </RevealSection>
 
-        <RevealSection className="mt-16">
+        <RevealSection className="mt-20">
           <section
             id="skills"
             className="scroll-mt-28 rounded-[2rem] border border-[var(--border-color)] bg-white/[0.03] px-6 py-10 sm:px-8 md:px-10"
@@ -276,6 +318,7 @@ export default function Home() {
                 <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                   A toolkit shaped around intelligent systems and backend depth.
                 </h2>
+                <div className="section-accent-line" />
                 <p className="text-base leading-8 text-white/68 sm:text-lg">
                   I work across the full delivery path, from model
                   experimentation and LLM workflows to API architecture, data
@@ -287,7 +330,7 @@ export default function Home() {
                 {skillGroups.map((group) => (
                   <div
                     key={group.id}
-                    className="rounded-[1.75rem] border border-white/10 bg-black/20 p-6"
+                    className={`rounded-[1.75rem] border border-white/10 p-6 ${group.tintClassName}`}
                   >
                     <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/54">
                       {group.title}
@@ -296,7 +339,7 @@ export default function Home() {
                       {group.items.map((item) => (
                         <span
                           key={item}
-                          className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/78"
+                          className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/78 transition-all duration-300 hover:border-[rgba(127,119,221,0.75)] hover:bg-[rgba(127,119,221,0.14)] hover:text-white hover:shadow-[0_0_24px_rgba(127,119,221,0.32)]"
                         >
                           {item}
                         </span>
@@ -309,7 +352,7 @@ export default function Home() {
           </section>
         </RevealSection>
 
-        <RevealSection className="mt-16">
+        <RevealSection className="mt-20">
           <section id="projects" className="scroll-mt-28">
             <div className="space-y-8">
               <div className="max-w-3xl space-y-4">
@@ -319,6 +362,7 @@ export default function Home() {
                 <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                   Selected work across AI, NLP, and backend engineering.
                 </h2>
+                <div className="section-accent-line" />
                 <p className="text-base leading-8 text-white/68 sm:text-lg">
                   These projects reflect how I approach production systems,
                   applied ML, and intelligent automation with measurable impact.
@@ -329,13 +373,16 @@ export default function Home() {
                 {projects.map((project) => (
                   <article
                     key={project.title}
-                    className="group rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-[rgba(127,119,221,0.55)] hover:shadow-[0_24px_80px_rgba(127,119,221,0.16)]"
+                    className="group rounded-[2rem] bg-[linear-gradient(135deg,rgba(127,119,221,0.7),rgba(76,109,218,0.62))] p-[1px] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_26px_90px_rgba(107,112,230,0.26)]"
                   >
-                    <div className="flex min-h-full flex-col">
+                    <div className="flex min-h-full flex-col rounded-[calc(2rem-1px)] bg-[rgba(13,13,20,0.94)] p-6">
                       <div className="flex items-start justify-between gap-4">
-                        <h3 className="max-w-xs text-2xl font-semibold tracking-tight text-white">
-                          {project.title}
-                        </h3>
+                        <div className="max-w-xs">
+                          <p className="text-2xl leading-none">{project.icon}</p>
+                          <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">
+                            {project.title}
+                          </h3>
+                        </div>
                         {project.badge ? (
                           <span
                             className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] ${project.badgeClassName}`}
@@ -376,7 +423,7 @@ export default function Home() {
           </section>
         </RevealSection>
 
-        <RevealSection className="mt-16">
+        <RevealSection className="mt-20">
           <section
             id="experience"
             className="scroll-mt-28 rounded-[2rem] border border-[var(--border-color)] bg-white/[0.03] px-6 py-10 sm:px-8 md:px-10"
@@ -389,6 +436,7 @@ export default function Home() {
                 <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                   Hands-on experience shipping AI features in real environments.
                 </h2>
+                <div className="section-accent-line" />
               </div>
 
               <article className="rounded-[1.75rem] border border-white/10 bg-black/20 p-6 sm:p-8">
@@ -398,17 +446,14 @@ export default function Home() {
                       Acuta Digital Inc.
                     </p>
                     <h3 className="mt-2 text-2xl font-semibold text-white">
-                      AI Integration Intern
+                      AI Integration Intern | Jun 2025 &ndash; Jul 2025
                     </h3>
                   </div>
-                  <p className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/62">
-                    Jun 2025 &ndash; Jul 2025
-                  </p>
                 </div>
 
                 <div className="mt-8 grid gap-4">
                   {[
-                    "Built an AI chatbot inside Drupal CMS using RAG and LLM integration, enabling context-aware content retrieval from structured website data",
+                    "Built an AI chatbot inside Drupal CMS using RAG and LLM integration, enabling context-aware content retrieval",
                     "Designed the full backend API layer for LLM communication including prompt engineering and response optimisation",
                     "Deployed and tested chatbot features on Pantheon hosting at production scale",
                   ].map((item) => (
@@ -428,7 +473,7 @@ export default function Home() {
           </section>
         </RevealSection>
 
-        <RevealSection className="mt-16">
+        <RevealSection className="mt-20">
           <section
             id="certifications"
             className="scroll-mt-28 rounded-[2rem] border border-[var(--border-color)] bg-white/[0.03] px-6 py-10 sm:px-8 md:px-10"
@@ -441,18 +486,21 @@ export default function Home() {
                 <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                   Credentials that reinforce my AI, data, and cloud foundation.
                 </h2>
+                <div className="section-accent-line" />
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                 {certifications.map((item) => (
                   <article
-                    key={item}
-                    className="rounded-[1.5rem] border border-white/10 bg-black/20 px-5 py-5 text-sm leading-7 text-white/78"
+                    key={item.title}
+                    className={`rounded-[1.5rem] border border-white/10 border-l-4 bg-black/20 px-5 py-5 text-sm leading-7 text-white/78 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.04] ${item.accentClassName}`}
                   >
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
                       <CertificateIcon />
                     </span>
-                    <p className="mt-4 text-base font-medium text-white">{item}</p>
+                    <p className="mt-4 text-base font-medium text-white">
+                      {item.title}
+                    </p>
                   </article>
                 ))}
               </div>
@@ -460,7 +508,7 @@ export default function Home() {
           </section>
         </RevealSection>
 
-        <RevealSection className="mt-16">
+        <RevealSection className="mt-20">
           <section
             id="contact"
             className="scroll-mt-28 rounded-[2rem] border border-[var(--border-color)] bg-white/[0.03] px-6 py-10 sm:px-8 md:px-10"
@@ -473,6 +521,7 @@ export default function Home() {
                 <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                   Open to full-time, internship, and collaborative projects
                 </h2>
+                <div className="section-accent-line" />
                 <p className="text-base leading-8 text-white/68 sm:text-lg">
                   If you&apos;re building thoughtful AI products or backend
                   systems, I&apos;d love to connect.
@@ -511,7 +560,7 @@ export default function Home() {
 
       <RevealSection className="px-4 pb-10 sm:px-6">
         <footer className="mx-auto flex w-full max-w-6xl items-center justify-center border-t border-white/10 pt-6 text-center text-sm text-white/46">
-          © 2025 Hrishitaa Nalawade · Built with Next.js
+          &copy; 2025 Hrishitaa Nalawade &middot; Built with Next.js
         </footer>
       </RevealSection>
     </div>
