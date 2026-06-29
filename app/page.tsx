@@ -530,7 +530,7 @@ export default function Home() {
                 <div className="mx-auto section-accent-line" />
               </div>
 
-              <div className="mt-10 grid gap-4 text-left sm:gap-5">
+              <div className="mt-10 grid gap-4 text-left">
                 {contactLinks.map((item) => (
                   <a
                     key={item.label}
@@ -539,18 +539,18 @@ export default function Home() {
                     rel={
                       item.href.startsWith("http") ? "noopener noreferrer" : undefined
                     }
-                    className="glass-card flex min-h-[88px] items-start gap-3 rounded-[22px] px-5 py-4 sm:items-center sm:gap-4"
+                    className="glass-card flex items-center gap-4 rounded-[22px] px-5 py-4"
                   >
                     <span
-                      className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl ${item.iconClassName}`}
+                      className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${item.iconClassName}`}
                     >
                       <ContactIcon type={item.icon} />
                     </span>
-                    <span className="min-w-0 flex-1">
+                    <span className="min-w-0">
                       <span className="block text-xs font-semibold uppercase tracking-[0.22em] text-[#5E5752]">
                         {item.label}
                       </span>
-                      <span className="mt-1 block text-sm font-medium text-[#1F1B18] sm:text-base" style={{ overflowWrap: "anywhere", wordBreak: "break-word" }}>
+                      <span className="mt-1 block truncate text-sm font-medium text-[#1F1B18] sm:text-base">
                         {item.value}
                       </span>
                     </span>
@@ -562,7 +562,7 @@ export default function Home() {
         </RevealSection>
       </main>
 
-      <RevealSection className="px-4 pb-[calc(2rem+env(safe-area-inset-bottom))] sm:px-6">
+      <RevealSection className="px-4 pb-10 sm:px-6">
         <footer className="mx-auto flex w-full max-w-6xl items-center justify-center border-t border-[rgba(139,105,20,0.15)] pt-6 text-center text-sm text-[#5E5752]">
           &copy; 2025 Hrishitaa Nalawade &middot; Built with Next.js
         </footer>
