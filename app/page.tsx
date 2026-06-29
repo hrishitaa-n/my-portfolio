@@ -195,8 +195,8 @@ const contactLinks = [
   },
   {
     label: "Phone",
-    value: "+91-9822882238",
-    href: "tel:+919822882238",
+    value: "+91 9822882238",
+    href: "tel:+91 9822882238",
     icon: "phone",
     iconClassName: "bg-[#EEE8D8] text-[#5C4A2A]",
   },
