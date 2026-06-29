@@ -63,30 +63,17 @@ export default function Navbar() {
     };
   }, []);
 
-  useEffect(() => {
-    const closeMenu = () => setIsMenuOpen(false);
-
-    window.addEventListener("hashchange", closeMenu);
-
-    return () => {
-      window.removeEventListener("hashchange", closeMenu);
-    };
-  }, []);
-
   return (
     <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6">
       <nav
-        className={`mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border px-4 py-3 transition-all duration-300 sm:px-6 ${
+        className={`mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border-b px-4 py-3 backdrop-blur-xl transition-all duration-300 sm:px-6 ${
           isScrolled
-            ? "border-white/12 bg-black/45 shadow-[0_12px_45px_rgba(0,0,0,0.28)] backdrop-blur-xl"
-            : "border-white/8 bg-white/4 backdrop-blur-md"
+            ? "border-[rgba(139,127,232,0.18)] bg-[rgba(255,255,255,0.95)] shadow-[0_16px_30px_rgba(139,127,232,0.14)]"
+            : "border-[rgba(139,127,232,0.15)] bg-[rgba(255,255,255,0.95)] shadow-[0_10px_24px_rgba(139,127,232,0.08)]"
         }`}
       >
-        <Link
-          href="/"
-          className="text-sm font-semibold uppercase tracking-[0.32em] text-white"
-        >
-          HN
+        <Link href="/" className="text-base font-bold tracking-[0.28em]">
+          <span className="logo-gradient">HN</span>
         </Link>
 
         <div className="hidden items-center gap-2 md:flex">
@@ -97,15 +84,15 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative rounded-full px-4 py-2 text-sm transition-colors duration-200 ${
+                className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                   isActive
-                    ? "bg-[var(--accent-soft)] text-[var(--accent)]"
-                    : "text-white/68 hover:text-white"
+                    ? "text-[var(--accent-primary)]"
+                    : "text-[var(--heading)] hover:text-[var(--accent-primary)]"
                 }`}
               >
                 {link.label}
                 <span
-                  className={`absolute inset-x-3 -bottom-0.5 h-0.5 origin-left rounded-full bg-[var(--accent)] transition-transform duration-300 ${
+                  className={`absolute inset-x-3 -bottom-0.5 h-0.5 origin-left rounded-full bg-[var(--accent-primary)] transition-transform duration-300 ${
                     isActive ? "scale-x-100" : "scale-x-0"
                   }`}
                 />
@@ -119,7 +106,7 @@ export default function Navbar() {
           aria-expanded={isMenuOpen}
           aria-label="Toggle navigation menu"
           onClick={() => setIsMenuOpen((open) => !open)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white transition-colors hover:bg-white/6 md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(139,127,232,0.2)] bg-white/80 text-[var(--heading)] transition-colors hover:bg-white md:hidden"
         >
           <span className="sr-only">Menu</span>
           <div className="flex flex-col gap-1.5">
@@ -143,7 +130,7 @@ export default function Navbar() {
       </nav>
 
       {isMenuOpen ? (
-        <div className="mx-auto mt-3 flex w-full max-w-6xl flex-col gap-2 rounded-3xl border border-white/10 bg-black/78 p-3 backdrop-blur-xl md:hidden">
+        <div className="mx-auto mt-3 flex w-full max-w-6xl flex-col gap-2 rounded-[24px] border border-white/80 bg-[rgba(255,255,255,0.95)] p-3 shadow-[0_16px_30px_rgba(139,127,232,0.12)] backdrop-blur-xl md:hidden">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.slice(1);
 
@@ -152,10 +139,10 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`rounded-2xl px-4 py-3 text-sm transition-colors ${
+                className={`rounded-2xl px-4 py-3 text-sm font-medium transition-colors ${
                   isActive
-                    ? "bg-[var(--accent-soft)] text-[var(--accent)]"
-                    : "text-white/76 hover:bg-white/5 hover:text-white"
+                    ? "bg-[rgba(139,127,232,0.12)] text-[var(--accent-primary)]"
+                    : "text-[var(--heading)] hover:bg-[rgba(139,127,232,0.06)] hover:text-[var(--accent-primary)]"
                 }`}
               >
                 {link.label}

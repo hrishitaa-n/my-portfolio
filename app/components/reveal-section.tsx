@@ -42,8 +42,8 @@ export default function RevealSection({
         }
       },
       {
-        rootMargin: "0px 0px -12% 0px",
-        threshold: 0.12,
+        rootMargin: "0px 0px -10% 0px",
+        threshold: 0.1,
       },
     );
 

@@ -78,13 +78,13 @@ export default function Navbar() {
       <nav
         className={`mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border px-4 py-3 transition-all duration-300 sm:px-6 ${
           isScrolled
-            ? "border-white/12 bg-black/45 shadow-[0_12px_45px_rgba(0,0,0,0.28)] backdrop-blur-xl"
-            : "border-white/8 bg-white/4 backdrop-blur-md"
+            ? "border border-white/45 bg-white/45 shadow-[0_10px_35px_rgba(0,0,0,.05)] backdrop-blur-[30px]"
+            : "border border-white/45 bg-white/45 backdrop-blur-[30px]"
         }`}
       >
         <Link
           href="/"
-          className="text-sm font-semibold uppercase tracking-[0.32em] text-white"
+          className="text-sm font-bold uppercase tracking-[0.32em] text-[#1F1B18]"
         >
           HN
         </Link>
@@ -97,10 +97,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`rounded-full px-4 py-2 text-sm transition-colors duration-200 ${
+                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                   isActive
-                    ? "bg-[var(--accent-soft)] text-[var(--accent)]"
-                    : "text-white/68 hover:text-white"
+                    ? "bg-[rgba(124,92,59,0.12)] text-[#1F1B18] font-semibold"
+                    : "text-[#5E5752] hover:text-[#1F1B18]"
                 }`}
               >
                 {link.label}
@@ -114,7 +114,7 @@ export default function Navbar() {
           aria-expanded={isMenuOpen}
           aria-label="Toggle navigation menu"
           onClick={() => setIsMenuOpen((open) => !open)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white transition-colors hover:bg-white/6 md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/45 bg-white/35 text-[#1F1B18] transition-colors hover:bg-white/45 md:hidden"
         >
           <span className="sr-only">Menu</span>
           <div className="flex flex-col gap-1.5">
@@ -138,7 +138,7 @@ export default function Navbar() {
       </nav>
 
       {isMenuOpen ? (
-        <div className="mx-auto mt-3 flex w-full max-w-6xl flex-col gap-2 rounded-3xl border border-white/10 bg-black/78 p-3 backdrop-blur-xl md:hidden">
+        <div className="mx-auto mt-3 flex w-full max-w-6xl flex-col gap-2 rounded-3xl border border-white/45 bg-white/45 p-3 shadow-[0_10px_35px_rgba(0,0,0,.05)] backdrop-blur-[30px] md:hidden">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.slice(1);
 
@@ -147,10 +147,10 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`rounded-2xl px-4 py-3 text-sm transition-colors ${
+                className={`rounded-2xl px-4 py-3 text-sm font-medium transition-colors ${
                   isActive
-                    ? "bg-[var(--accent-soft)] text-[var(--accent)]"
-                    : "text-white/76 hover:bg-white/5 hover:text-white"
+                    ? "bg-[rgba(124,92,59,0.12)] text-[#1F1B18] font-semibold"
+                    : "text-slate-700/80 hover:bg-white/35 hover:text-[#1F1B18]"
                 }`}
               >
                 {link.label}
@@ -162,3 +162,4 @@ export default function Navbar() {
     </header>
   );
 }
+
