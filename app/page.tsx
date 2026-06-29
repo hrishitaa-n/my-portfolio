@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Navbar from "./components/navbar";
 import RevealSection from "./components/reveal-section";
 import ScrollProgress from "./components/scroll-progress";
@@ -228,14 +229,14 @@ export default function Home() {
       <ScrollProgress />
       <Navbar />
 
-      <main className="mx-auto flex w-full max-w-6xl flex-col">
-        <div className="glass-section mx-auto mb-6 w-full max-w-5xl px-12 py-12">
+      <main className="mx-auto flex w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
+        <div className="glass-section mx-auto mb-6 w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-10 lg:px-12 lg:py-12">
           <section
             aria-label="Hero"
-            className="flex flex-row items-center min-h-[calc(100vh-80px)]"
+            className="flex min-h-[calc(100vh-80px)] flex-col items-center gap-10 text-center lg:flex-row lg:items-center lg:gap-16 lg:text-left"
           >
             {/* Left column — 55% */}
-            <div className="flex w-[55%] flex-col">
+            <div className="flex w-full flex-col lg:w-[55%]">
               <h1 className="hero-name-gradient text-5xl font-bold tracking-tight">
                 Hrishitaa Nalawade
               </h1>
@@ -246,17 +247,17 @@ export default function Home() {
                 I build intelligent systems — from LLM integrations to real-time
                 backend APIs
               </p>
-              <div className="mt-8 flex flex-row gap-3">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
                 <a
                   href="#projects"
-                  className="rounded-[14px] bg-[#7C5C3B] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#5F452D]"
+                  className="inline-flex min-h-12 items-center justify-center rounded-[14px] bg-[#7C5C3B] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#5F452D] sm:flex-1 lg:flex-none"
                 >
                   View my work
                 </a>
                 <a
                   href="/resume.pdf"
                   download="Hrishitaa_Nalawade_Resume.pdf"
-                  className="rounded-[14px] border border-white/45 bg-white/35 backdrop-blur-[20px] px-6 py-3 text-sm font-semibold text-[#5E5752] transition-colors hover:bg-white/45"
+                  className="inline-flex min-h-12 items-center justify-center rounded-[14px] border border-white/45 bg-white/35 px-6 py-3 text-sm font-semibold text-[#5E5752] backdrop-blur-[20px] transition-colors hover:bg-white/45 sm:flex-1 lg:flex-none"
                 >
                   Download Resume
                 </a>
@@ -264,13 +265,16 @@ export default function Home() {
             </div>
 
             {/* Right column — 45% */}
-            <div className="flex w-[45%] items-center justify-center">
-              <img
+            <div className="order-2 flex w-full items-center justify-center lg:order-none lg:w-[45%]">
+              <Image
                 src="/profile.jpeg"
                 alt="Hrishitaa Nalawade"
+                width={320}
+                height={320}
+                sizes="(max-width: 1024px) 72vw, 320px"
                 style={{
-                  width: "320px",
-                  height: "320px",
+                  width: "min(320px, 72vw)",
+                  height: "min(320px, 72vw)",
                   borderRadius: "9999px",
                   objectFit: "cover",
                   boxShadow: "0 8px 32px rgba(124,92,59,0.2)",
@@ -282,7 +286,7 @@ export default function Home() {
         </div>
 
         <RevealSection>
-          <div className="glass-section mx-auto mb-6 w-full max-w-5xl px-12 py-12">
+          <div className="glass-section mx-auto mb-6 w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-10 lg:px-12 lg:py-12">
             <section id="about">
               <p className="mb-4 text-sm font-medium uppercase tracking-widest text-[#7C5C3B]">
                 About me
@@ -307,7 +311,7 @@ export default function Home() {
         </RevealSection>
 
         <RevealSection className="mt-20">
-          <section className="glass-section px-12 py-12" id="skills">
+          <section className="glass-section px-4 py-8 sm:px-6 sm:py-10 lg:px-12 lg:py-12" id="skills">
             <div className="space-y-8">
               <div className="max-w-3xl space-y-4">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#7C5C3B]">
@@ -324,7 +328,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="grid gap-5 lg:grid-cols-2">
+              <div className="grid gap-5 md:grid-cols-2">
                 {skillGroups.map((group) => (
                   <div
                     key={group.id}
@@ -353,7 +357,7 @@ export default function Home() {
         </RevealSection>
 
         <RevealSection className="mt-20">
-          <section className="glass-section px-12 py-12" id="projects">
+          <section className="glass-section px-4 py-8 sm:px-6 sm:py-10 lg:px-12 lg:py-12" id="projects">
             <div className="space-y-8">
               <div className="max-w-3xl space-y-4">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#7C5C3B]">
@@ -371,10 +375,10 @@ export default function Home() {
 
               <div className="grid gap-6 md:grid-cols-2">
                 {projects.map((project) => (
-                  <article key={project.title} className="glass-card group flex flex-col justify-between rounded-[24px] p-8">
+                  <article key={project.title} className="glass-card group flex min-h-full flex-col justify-between rounded-[24px] p-6 sm:p-7 lg:p-8">
                     <div className="flex h-full min-h-full flex-1 flex-col">
-                      <div className="flex items-start gap-4">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/35 backdrop-blur-[14px] border border-white/45">
+                      <div className="flex items-start gap-3 sm:gap-4">
+                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/35 backdrop-blur-[14px] border border-white/45">
                           <p className="text-2xl leading-none">{project.emoji}</p>
                         </div>
                         <div className="min-w-0 flex-1">
@@ -406,7 +410,7 @@ export default function Home() {
                         ))}
                       </div>
 
-                      <div className="mt-auto pt-8">
+                      <div className="mt-auto pt-6 sm:pt-8">
                         <a
                           href={project.githubUrl}
                           target="_blank"
@@ -426,7 +430,7 @@ export default function Home() {
 
         <RevealSection className="mt-20">
           <section
-            className="glass-section px-12 py-12"
+            className="glass-section px-4 py-8 sm:px-6 sm:py-10 lg:px-12 lg:py-12"
             id="experience"
           >
             <div className="space-y-8">
@@ -440,7 +444,7 @@ export default function Home() {
                 <div className="section-accent-line" />
               </div>
 
-              <article className="glass-card rounded-[28px] border-l-[3px] border-l-[#8B6914] p-6 sm:p-8">
+              <article className="glass-card rounded-[24px] border-l-[3px] border-l-[#8B6914] p-5 sm:rounded-[28px] sm:p-8">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#1F1B18]">
                     Acuta Digital Inc.
@@ -471,7 +475,7 @@ export default function Home() {
 
         <RevealSection className="mt-20">
           <section
-            className="glass-section px-12 py-12"
+            className="glass-section px-4 py-8 sm:px-6 sm:py-10 lg:px-12 lg:py-12"
             id="certifications"
           >
             <div className="space-y-8">
@@ -489,7 +493,7 @@ export default function Home() {
                 {certifications.map((item) => (
                   <article
                     key={item.title}
-                    className={`glass-card rounded-[24px] border-l-4 p-5 ${item.border}`}
+                    className={`glass-card rounded-[24px] border-l-4 p-5 sm:p-6 ${item.border}`}
                   >
                     <span
                       className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl ${item.iconBg}`}
@@ -509,10 +513,10 @@ export default function Home() {
 
         <RevealSection className="mt-20">
           <section
-            className="glass-section px-12 py-12"
+            className="glass-section px-4 py-8 sm:px-6 sm:py-10 lg:px-12 lg:py-12"
             id="contact"
           >
-            <div className="glass-card mx-auto max-w-4xl rounded-[28px] p-8 text-center sm:p-10">
+            <div className="glass-card mx-auto max-w-4xl rounded-[22px] p-6 text-center sm:rounded-[24px] sm:p-8 lg:p-10">
               <div className="inline-flex rounded-full bg-white/35 px-4 py-2 text-sm font-semibold text-[#7C5C3B] backdrop-blur-[14px] border border-white/45">
                 Open to full-time, internship, and collaborative projects
               </div>

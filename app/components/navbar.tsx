@@ -74,9 +74,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6">
+    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4 lg:px-6">
       <nav
-        className={`mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border px-4 py-3 transition-all duration-300 sm:px-6 ${
+        className={`mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border px-4 py-3 transition-all duration-300 sm:px-5 sm:py-3.5 ${
           isScrolled
             ? "border border-white/45 bg-white/45 shadow-[0_10px_35px_rgba(0,0,0,.05)] backdrop-blur-[30px]"
             : "border border-white/45 bg-white/45 backdrop-blur-[30px]"
