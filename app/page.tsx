@@ -144,6 +144,18 @@ const projects = [
     description:
       "Designing ML models to classify brain motor imagery signals from EEG data — applying signal preprocessing, feature extraction, and cross-validation to optimise classification accuracy.",
   },
+  {
+    emoji: "🔎",
+    title: "Semantic Search Engine",
+    accent: "#7C5C3B",
+    badge: { label: "FEATURED", className: "rounded-full border border-[#E7DED3] bg-[#F4F0EA] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7C5C3B]" },
+    buttonClassName:
+      "w-full bg-[#7C5C3B] text-white hover:bg-[#5F452D] shadow-none",
+    githubUrl: "https://github.com/hrishitaa-n/Sematic_Search_Engine",
+    tech: ["FastAPI", "Sentence Transformers", "FAISS", "PostgreSQL", "SQLAlchemy", "Groq", "pdfplumber"],
+    description:
+      "Built a full RAG system that answers natural-language questions from TXT and PDF document corpora using FAISS semantic search, PostgreSQL-backed chunks, and Groq-generated answers with source citations.",
+  },
 ];
 
 const certifications = [
